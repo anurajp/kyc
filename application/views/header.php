@@ -106,6 +106,16 @@
         float: right;
     }
 
+    .modal-dialog {
+        width: 800px; /* SET THE WIDTH OF THE MODAL */
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
+
+
+
 
 
 

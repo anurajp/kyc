@@ -74,6 +74,7 @@
 </div>
 -->
 <?require_once('simple_html_dom.php'); ?>
+<?require_once('fb_plugin.php'); ?>
 
 <div class="bs-example">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -99,7 +100,8 @@
                                 <?php $viewDetailsCounters =  0 ?>
                                 <?php $comaprisionTable = "<table>" ?>
 
-                                <?php echo $comaprisionTable ?>
+                                <?php
+                                ?>
 
                                 <?php foreach ( $comparisons as $comparison ) : ?>
 
@@ -118,6 +120,10 @@
                                             $infoCardTable.= $element;
 
                                         }
+                                        $fbPlugin = new TestFb();
+                                        $fbLikePlugin = $fbPlugin->getLikePlugin("AAPkaArvind");
+
+
 
                                         $row = '';
                                         $count = count($comparisons);
@@ -157,7 +163,16 @@
                                             <h4 class=\"modal-title\" id=\"myModalLabel\">Arvind Kejriwal</h4>
                                         </div>
                                         <div class=\"modal-body\">
-                                            <p>  $infoCardTable </p>
+                                        <table>
+                                        <tr>
+                                        <td>$infoCardTable</td>
+                                        <td>$fbLikePlugin</td>
+
+                                        </tr>
+                                        </table>
+                                       <p></p>
+                                       <p></p>
+
                                         </div>
                                         <div class=\"modal-footer\">
                                             <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
@@ -267,6 +282,8 @@
                         <?php $viewDetails.=$viewDetailsCounters ?>
                         <?php $viewDetailsCollapse="#".$viewDetails ?>
                         <?php
+                        $fbPlugin = new TestFb();
+                        $fbLikePlugin = $fbPlugin->getLikePlugin("AAPkaArvind");
                         $row = '';
                         $count = count($comparisons);
                         if($viewDetailsCounters%2 != 0 ){
@@ -305,7 +322,8 @@
                                             <h4 class=\"modal-title\" id=\"myModalLabel\">Arvind Kejriwal</h4>
                                         </div>
                                         <div class=\"modal-body\">
-                                            <p>   Arvind Kejriwal is an Indian politician and former bureaucrat who served as the 7th Chief Minister of Delhi from 28 December 2013 to 14 February 2014. He is the leader of the Aam Aadmi Party.</p>
+                                            <p>$infoCardTable</p>
+
                                         </div>
                                         <div class=\"modal-footer\">
                                             <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
