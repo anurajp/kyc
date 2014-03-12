@@ -29,4 +29,10 @@ class Hello extends CI_Controller{
 
 
     }
+
+    public function wikipediaScrapper(){
+        $this->load->view('wikipedia_infocard_scrapper.php');
+
+
+    }
 }

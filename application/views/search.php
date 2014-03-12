@@ -73,87 +73,297 @@
     </div>
 </div>
 -->
-<table>
-    <tr>
-        <td>
-            <div class="comparison">
-                <h3>Candidate List</h3>
-                <?php $comparisons =array( array("price"=>"34"),array("price"=>"34"),array("price"=>"34")) ?>
-                <?php $viewDetails =  "viewdetails" ?>
-                <?php $viewDetailsCounters =  0 ?>
-                <?php foreach ( $comparisons as $comparison ) : ?>
-                    <?php if ( !empty ( $comparison['price'] ) ) : ?>
-                        <?php $viewDetailsCounters =  $viewDetailsCounters+1 ?>
-                        <?php $viewDetails.=$viewDetailsCounters ?>
-                        <?php $viewDetailsCollapse="#".$viewDetails ?>
-                <div class="container">
-                    <ul class="thumbnails">
-                        <ol class="span5 offset2">
-                            <div class="thumbnail">
-                                <div class = "col-md-4"
-                                <img class="img-rounded pull-left" src="http://localhost/compare/j_admin/uploads/products/ArvindKejriwal2.jpg" alt="Arvind Kejriwal ">
-</div>  
-                                <div class=" col4 caption">
-                                    <h5>Arvind Kejriwal</h5>
-                                    <p>Arvind Kejriwal is an Indian politician and former bureaucrat who served as the 7th Chief Minister of Delhi from 28 December 2013 to 14 February 2014. He is the leader of the Aam Aadmi Party.</p>
-                                    <p class="collapse" id="<?php echo  $viewDetails ?>">Kejriwal is a graduate of the Indian Institute of Technology Kharagpur. He worked for the Indian Revenue Service (IRS) as a Joint Commissioner in the Income Tax Department. He is known for his efforts to enact and implement the Right to Information Act (RTI) at the grassroots level and his role in drafting a proposed Jan Lokpal Bill. </p>
-                                    <p><a class="btn btn-primary" data-toggle="collapse" data-target="<?php echo  $viewDetailsCollapse ?>">View details &raquo;</a></p>
-                                    <p><a href="#" class="btn btn-success">Vote</a></p>
+<?require_once('simple_html_dom.php'); ?>
+
+<div class="bs-example">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item">
+
+               <table style="width:100% ;height =50%">
+                <tr>
+                    <td style="width:70%">
+                        <div >
+                            <div class="page-header">
+                                <p class="bg-info"><h1>Lucknow <small>7 April </small></h1></p>
+                            </div>
+                            <div class="container">
+
+                                <?php $comparisons =array( array("price"=>"34"),array("price"=>"34"),array("price"=>"34")) ?>
+                                <?php $viewDetails =  "viewdetails" ?>
+                                <?php $viewDetailsCounters =  0 ?>
+                                <?php $comaprisionTable = "<table>" ?>
+
+                                <?php echo $comaprisionTable ?>
+
+                                <?php foreach ( $comparisons as $comparison ) : ?>
+
+
+                                    <?php if ( !empty ( $comparison['price'] ) ) : ?>
+
+                                        <?php $viewDetailsCounters =  $viewDetailsCounters+1 ?>
+                                        <?php $viewDetails.=$viewDetailsCounters ?>
+                                        <?php $viewDetailsCollapse="#".$viewDetails ?>
+                                        <?php
+                                        //Wikipedia page to parse
+                                        $html = file_get_html('https://en.wikipedia.org/wiki/Arvind_Kejriwal');
+                                        $infoCard = $html->find ( 'table[class=infobox vcard]' );
+                                        $infoCardTable = "";
+                                        foreach ( $html->find ( 'table[class=infobox vcard]' ) as $element ){
+                                            $infoCardTable.= $element;
+
+                                        }
+
+                                        $row = '';
+                                        $count = count($comparisons);
+                                        if($viewDetailsCounters%2 != 0 ){
+                                            $row = "<tr>";
+
+                                        }
+
+                                        $row.= " <td>
+                                <ul class=\"thumbnails\">
+                                    <ol class=\"span5 offset2\">
+                                    <div class=\"thumbnail\">
+                                        <img class=\"img-rounded \" src=\"http://localhost/compare/j_admin/uploads/products/ArvindKejriwal2.jpg\" alt=\"Arvind Kejriwal \">
+
+                                        <div class=\"caption\">
+                                            <h4><u>Arvind Kejriwal</u></h4>
+
+                                            <div class=\"bs-example\" style=\"padding-bottom: 10px;\">
+                                            <a href=\"#\" class=\"btn btn-success\">Vote</a>
+                                            <button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=";
+                                        $row.=$viewDetailsCollapse;
+                                        $row.=">
+                                            View Details
+                                            </button>
+                                        </div>
+                                        <strong> Current Votes : 234</strong>
+                                        <!-- Modal -->
+                                        <div class=\"modal fade\" id=";
+
+
+                                        $row.=$viewDetails;
+                                        $row.=" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
+                                <div class=\"modal-dialog\">
+                                    <div class=\"modal-content\">
+                                        <div class=\"modal-header\">
+                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>
+                                            <h4 class=\"modal-title\" id=\"myModalLabel\">Arvind Kejriwal</h4>
+                                        </div>
+                                        <div class=\"modal-body\">
+                                            <p>  $infoCardTable </p>
+                                        </div>
+                                        <div class=\"modal-footer\">
+                                            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </ol>
-                    </ul>
-                </div> <!-- /container -->
-
-                    <?php endif; ?>
-                <?php endforeach; ?>
-
-            </div> <!-- /comparison -->
-
-        </td>
-        <td valign = "top" >
-            <?php include('sidebar.php'); ?>
-        </td>
-    </tr>
-</table>
 
 
 
-<!--
-<div class="comparison">
-    <h3>Candidate List</h3>
-    <?php $comparisons =array( array("price"=>"34"),array("price"=>"34")) ?>
-    <table>
-     <tr>
-         <td valign="top">
-             <div class="well well-lg">
-             <?php foreach ( $comparisons as $comparison ) : ?>
-
-     <table  class="table   ">
+                            </div>
+                            </div>
+                            </ol>
+                        </ul>
+                    </td>";
 
 
-          <?php if ( !empty ( $comparison['price'] ) ) : ?>
-                <tr>
-                    <td><img class="merchant-image"  src="http://localhost/compare/j_admin/uploads/products/ArvindKejriwal2.jpg" alt="Arvind Kejriw" /></td>
 
-                    <td rowspan =2><?php echo "Profile" ?></td>
-                    <td rowspan =2 ><p><?php echo "123" ?></p></td>
+                                        if($count==$viewDetailsCounters && $viewDetailsCounters%2 != 0){
+                                            $row .= "<td></td>";
+                                            $row .= "</tr>";
+                                        }elseif($count==$viewDetailsCounters && $viewDetailsCounters%2 == 0){
+
+                                            $row .= "</tr>";
+
+                                        }
+                                        elseif($viewDetailsCounters%2 == 0 ){
+                                            //   echo $viewDetailsCounters;
+                                            $row .= "</tr>";
+
+                                        }
+                                        $comaprisionTable.=$row;
+
+
+
+                                        ?>
+
+
+
+
+
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+                            </div> <!-- /container -->
+                            <?php
+
+                            $comaprisionTable.="</table>";
+                            echo $comaprisionTable;
+                            ?>
+
+
+                        </div> <!-- /comparison -->
+
+                    </td>
+                    <td style="width:30%">
+
+                    </td>
                 </tr>
-                <tr>
-                <td class="merchant-name-td"><?php echo "Arvind Kejriwal" ?></td>
-                </tr>
-              <tr class="spacer"><td></td><td></td><td></td></tr>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </table>
-   </div></td>
+                </table>
 
 
-     </tr>
-    </table>
 
+
+            </div>
+            <div class="item active">
+                <img data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzY2NiI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojNDQ0O2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+U2Vjb25kIHNsaWRlPC90ZXh0Pjwvc3ZnPg==">
+            </div>
+            <div class="item">
+                <img data-src="holder.js/900x500/auto/#555:#333/text:Third slide" alt="Third slide" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzU1NSI+PC9yZWN0Pjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQ1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojMzMzO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjU2cHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+VGhpcmQgc2xpZGU8L3RleHQ+PC9zdmc+">
+            </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
 </div>
 
 
 
--->
+
+<table style="width:100%">
+    <tr>
+        <td style="width:70%">
+            <div >
+                <div class="page-header">
+                  <p class="bg-info"><h1>Lucknow <small>7 April </small></h1></p>
+                </div>
+                <div class="container">
+
+                <?php $comparisons =array( array("price"=>"34"),array("price"=>"34"),array("price"=>"34")) ?>
+                <?php $viewDetails =  "viewdetails" ?>
+                <?php $viewDetailsCounters =  0 ?>
+                 <?php $comaprisionTable = "<table>" ?>
+
+                <?php echo $comaprisionTable ?>
+
+                <?php foreach ( $comparisons as $comparison ) : ?>
+
+
+                    <?php if ( !empty ( $comparison['price'] ) ) : ?>
+                        <?php $viewDetailsCounters =  $viewDetailsCounters+1 ?>
+                        <?php $viewDetails.=$viewDetailsCounters ?>
+                        <?php $viewDetailsCollapse="#".$viewDetails ?>
+                        <?php
+                        $row = '';
+                        $count = count($comparisons);
+                        if($viewDetailsCounters%2 != 0 ){
+                            $row = "<tr>";
+
+                        }
+
+                        $row.= " <td>
+                                <ul class=\"thumbnails\">
+                                    <ol class=\"span5 offset2\">
+                                    <div class=\"thumbnail\">
+                                        <img class=\"img-rounded \" src=\"http://localhost/compare/j_admin/uploads/products/ArvindKejriwal2.jpg\" alt=\"Arvind Kejriwal \">
+
+                                        <div class=\"caption\">
+                                            <h4><u>Arvind Kejriwal</u></h4>
+
+                                            <div class=\"bs-example\" style=\"padding-bottom: 10px;\">
+                                            <a href=\"#\" class=\"btn btn-success\">Vote</a>
+                                            <button class=\"btn btn-primary\" data-toggle=\"modal\" data-target=";
+                        $row.=$viewDetailsCollapse;
+                        $row.=">
+                                            View Details
+                                            </button>
+                                        </div>
+                                        <strong> Current Votes : 234</strong>
+                                        <!-- Modal -->
+                                        <div class=\"modal fade\" id=";
+
+
+                        $row.=$viewDetails;
+                        $row.=" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
+                                <div class=\"modal-dialog\">
+                                    <div class=\"modal-content\">
+                                        <div class=\"modal-header\">
+                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>
+                                            <h4 class=\"modal-title\" id=\"myModalLabel\">Arvind Kejriwal</h4>
+                                        </div>
+                                        <div class=\"modal-body\">
+                                            <p>   Arvind Kejriwal is an Indian politician and former bureaucrat who served as the 7th Chief Minister of Delhi from 28 December 2013 to 14 February 2014. He is the leader of the Aam Aadmi Party.</p>
+                                        </div>
+                                        <div class=\"modal-footer\">
+                                            <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            </div>
+                            </div>
+                            </ol>
+                        </ul>
+                    </td>";
+
+
+
+                        if($count==$viewDetailsCounters && $viewDetailsCounters%2 != 0){
+                            $row .= "<td></td>";
+                            $row .= "</tr>";
+                        }elseif($count==$viewDetailsCounters && $viewDetailsCounters%2 == 0){
+
+                            $row .= "</tr>";
+
+                        }
+                        elseif($viewDetailsCounters%2 == 0 ){
+                         //   echo $viewDetailsCounters;
+                            $row .= "</tr>";
+
+                        }
+                        $comaprisionTable.=$row;
+
+
+
+                        ?>
+
+
+
+
+
+                    <?php endif; ?>
+
+                <?php endforeach; ?>
+    </div> <!-- /container -->
+                <?php
+
+                $comaprisionTable.="</table>";
+               echo $comaprisionTable;
+                ?>
+
+
+            </div> <!-- /comparison -->
+
+        </td>
+        <td style="width:30%">
+            <?php include('sidebar.php'); ?>
+        </td>
+    </tr>
+</table>
