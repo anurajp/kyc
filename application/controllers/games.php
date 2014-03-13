@@ -307,6 +307,9 @@ class Games extends CI_Controller {
                         <th>Candidates</th>
                         <th>Event</th>
                         <th>Venue</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zipcode</th>
                         <th>Date</th>
                         </tr>';
         foreach($games as $game) {
@@ -324,11 +327,34 @@ class Games extends CI_Controller {
             $cand_csv .= '</a></td>';
             $table_rows .= $cand_csv;
             $table_rows .= '<td>'.$game->g_type.'</td>'
-                .'<td>'.$game->g_place.' '.$game->g_city.','.$game->g_state.'( '.$game->zipcode.')</td>'
+                .'<td>'.$game->g_place.'</td><td> '.$game->g_city.'</td><td>'.$game->g_state.'</td><td>'.$game->zipcode.'</td>'
                 .'<td>'.$game->g_date.'</td>';
             $table_rows .= '</tr>';
         }
         $table_rows .= '</table>';
         return $table_rows;
+    }
+
+    public function events($g_type, $key = '', $value = '') {
+        if(empty($g_type)) {
+            show_404();
+        }
+        $criteria = '';
+        if(!empty($key) && !empty($value)) {
+            $criteria = array($key => $value, 'gtype' => $g_type);
+        } else {
+            $criteria = array('gtype' => $g_type);
+        }
+
+        $games = $this->games_model->get_games($criteria);
+        $games_table = '<h2 class="container"> Sorry! No results found </h2>';
+        if(!empty($games)) {
+            $games_table = $this->get_games_table($games);
+        }
+        $data['events'] = $games_table;
+        $this->load->view("header");
+        $this->load->view("events", $data);
+        $this->load->view("footer");
+
     }
 } 
