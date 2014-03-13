@@ -23,8 +23,13 @@ class Games_model extends CI_Model {
      * Returns Game aggregated data for a game search criteria
      */
 
-    public function get_games($criteria) {
-        $game_query = $this->db->get_where('Game', $criteria);
+    public function get_games($criteria, $limit = 0) {
+        $game_query = null;
+        if($limit > 0) {
+            $game_query = $this->db->get_where('Game', $criteria, $limit);
+        } else {
+            $game_query = $this->db->get_where('Game', $criteria);
+        }
         $game_rows = $game_query->result_array();
         return $this->get_games_by_game_rows($game_rows);
     }
@@ -61,7 +66,8 @@ class Games_model extends CI_Model {
             $c_md_query = $this->db->get_where('CandidateMetadata', array('cid' => $candidate_row['cid']));
             $c_md = $c_md_query->result_array();
             if(!empty($c_md)) {
-                array_push($candidates, new Candidate($candidate_row, $c_md));
+                $votes = $this->get_votes_count($g_id, $candidate_row['cid']);
+                array_push($candidates, new Candidate($candidate_row, $c_md, $votes));
             }
         }
 
@@ -177,4 +183,7 @@ class Games_model extends CI_Model {
         return array();
 
     }
+
+
+
 } 

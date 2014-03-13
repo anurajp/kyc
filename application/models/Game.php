@@ -18,6 +18,7 @@ class Game {
     var $g_city;
     var $g_place;
     var $zipcode;
+    var $g_priority;
     var $winner_cid = null;
     var $candidates = array();
 
@@ -32,9 +33,10 @@ class Game {
         $this->g_place = $g_row['gplace'];
         $this->zipcode = $g_row['zipcode'];
         $this->winner_cid = $g_row['winnercid'];
+        $this->g_priority = $g_row['gpriority'];
         $this->candidates = $candidates;
 
-        log_message('debug', var_dump($this));
+
     }
 
 }
