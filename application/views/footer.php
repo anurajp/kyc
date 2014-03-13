@@ -586,7 +586,7 @@
 <script src="/js/templatemo_script.js"  type="text/javascript"></script>
 <script type='text/javascript' src='/js/logging.js'></script>
 <!--<script src="http://pioul.fr/ext/jquery-diyslider/jquery.diyslider.min.js"></script>-->
-<script src="http://bxslider.com/lib/jquery.bxslider.js" type="text/javascript"></script>
+<!--<script src="http://bxslider.com/lib/jquery.bxslider.js" type="text/javascript"></script>-->
 <script>
 
     $(document).ready(function(){
