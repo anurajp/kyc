@@ -44,17 +44,12 @@
     <link rel="stylesheet" href="http://bxslider.com/lib/jquery.bxslider.css" type="text/css" />
 
 
-    <meta charset=”utf-8”>
+     <meta charset=”utf-8”>
     <title>
         Welcome to KYC
     </title>
-    </head>
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"></head>
-
-
 </head>
+
 
 <body>
 
