@@ -6,7 +6,7 @@
 -->
 <html lang="en">
 <head>
-<<<<<<< HEAD
+
     <title>Know your candidate</title>
     <meta name="keywords" content="urbanic, responsive, bootstrap, fluid layout, orange, white, free website template, templatemo" />
     <meta name="description" content="Urbanic is free responsive template using Bootstrap which is compatible with mobile devices. This layout is provided by templatemo for free of charge." />
@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="http://bxslider.com/lib/jquery.bxslider.css" type="text/css" />
     <script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
 
-=======
+
     <meta charset=”utf-8”>
     <title>
         Welcome to KYC
@@ -166,7 +166,7 @@
 
 
 </style>
->>>>>>> FETCH_HEAD
+
 </head>
 
 <body>
