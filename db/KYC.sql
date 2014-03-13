@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2014 at 04:04 PM
+-- Generation Time: Mar 13, 2014 at 04:47 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -38,10 +38,16 @@ CREATE TABLE IF NOT EXISTS `CandidateMetadata` (
 --
 
 INSERT INTO `CandidateMetadata` (`cid`, `src`, `handle`) VALUES
-(1, 'fb', 'https://www.facebook.com/AAPkaArvind'),
-(2, 'fb', 'https://www.facebook.com/narendramodi'),
-(1, 'twitter', 'https://twitter.com/ArvindKejriwal?'),
-(2, 'twitter', 'https://twitter.com/narendramodi?');
+(1, 'fb', 'AAPkaArvind'),
+(1, 'wiki', 'Arvind_Kejriwal'),
+(2, 'fb', 'narendramodi'),
+(2, 'wiki', 'Narendra_Modi'),
+(1, 'img', 'http://upload.wikimedia.org/wikipedia/commons/0/06/ArvindKejriwal2.jpg'),
+(2, 'img', 'http://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/CM_Narendra_Damodardas_Modi.jpg/220px-CM_Narendra_Damodardas_Modi.jpg'),
+(3, 'fb', 'anurajjpandey'),
+(4, 'fb', 'ankur.bansal.37'),
+(3, 'img', 'https://pbs.twimg.com/profile_images/695647040/IMG_0195_-_Copy.JPG'),
+(4, 'img', 'https://pbs.twimg.com/profile_images/417573105138020352/N9R41uF2.jpeg');
 
 -- --------------------------------------------------------
 
@@ -57,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `Candidates` (
   PRIMARY KEY (`cid`),
   KEY `team` (`cteam`),
   FULLTEXT KEY `cfirstName` (`cfirstname`,`clastname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Stores candidates basic metadata information' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Stores candidates basic metadata information' AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Candidates`
@@ -65,7 +71,9 @@ CREATE TABLE IF NOT EXISTS `Candidates` (
 
 INSERT INTO `Candidates` (`cid`, `cfirstname`, `clastname`, `cteam`) VALUES
 (1, 'Arvind', 'Kejriwal', 'AAP'),
-(2, 'Narendra', 'Modi', 'BJP');
+(2, 'Narendra', 'Modi', 'BJP'),
+(3, 'Anuraj', 'Pandey', 'TAAP'),
+(4, 'Ankur', 'Bansal', 'BAAP');
 
 -- --------------------------------------------------------
 
@@ -84,21 +92,24 @@ CREATE TABLE IF NOT EXISTS `Game` (
   `gcountry` varchar(64) NOT NULL,
   `gplace` varchar(128) NOT NULL,
   `zipcode` int(11) NOT NULL,
+  `gpriority` int(11) NOT NULL DEFAULT '5',
   PRIMARY KEY (`gid`),
   UNIQUE KEY `gname_2` (`gname`),
   KEY `gtype` (`gtype`),
   KEY `gname` (`gname`),
+  KEY `gpriority` (`gpriority`),
   FULLTEXT KEY `gCity` (`gcity`),
   FULLTEXT KEY `gState` (`gstate`,`gcountry`),
   FULLTEXT KEY `gPlace` (`gplace`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Stores basic information regarding a game' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Stores basic information regarding a game' AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `Game`
 --
 
-INSERT INTO `Game` (`gid`, `gname`, `gtype`, `gdate`, `winnercid`, `gcity`, `gstate`, `gcountry`, `gplace`, `zipcode`) VALUES
-(1, 'Loksabha-2014-arvind-kejriwal-narendra-modi', 'Loksabha', '2014-04-07', NULL, 'Lukhnow', 'Uttar Pradesh', 'India', 'MG road ', 560055);
+INSERT INTO `Game` (`gid`, `gname`, `gtype`, `gdate`, `winnercid`, `gcity`, `gstate`, `gcountry`, `gplace`, `zipcode`, `gpriority`) VALUES
+(1, 'Loksabha-2014-arvind-kejriwal-narendra-modi', 'Loksabha', '2014-04-07', NULL, 'Lukhnow', 'Uttar Pradesh', 'India', 'MG road ', 560055, 10),
+(2, 'Loksabha-Anuraj-Ankur-RBS', 'Loksabha', '2014-03-07', NULL, 'Bangalore', 'Karnataka', 'India', 'Amazon', 560055, 10);
 
 -- --------------------------------------------------------
 
@@ -118,7 +129,11 @@ CREATE TABLE IF NOT EXISTS `GameCandidates` (
 
 INSERT INTO `GameCandidates` (`gid`, `cid`) VALUES
 (1, 1),
-(1, 2);
+(1, 2),
+(1, 3),
+(1, 4),
+(2, 3),
+(2, 4);
 
 -- --------------------------------------------------------
 
