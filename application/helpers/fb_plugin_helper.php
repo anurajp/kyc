@@ -9,4 +9,21 @@ function get_like_plugin($page_name) {
         return $iframeName;
 
 }
+
+// Pass the unique name of game like : 'http://localhost/index.php/games/get_game_div/1' i.e get_baseurl+gamelink
+function get_comment_plugin($page_name) {
+    $comment_plugin_div = '<div class="fb-comments" data-href="';
+    $comment_plugin_div.= $page_name;
+    $comment_plugin_div.= '" data-numposts="4" data-colorscheme="light"></div>';
+    return $comment_plugin_div;
+
+}
+
+function get_share_plugin($page_name) {
+    $share_plugin_iframe = '<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2F';
+    $share_plugin_iframe.=$page_name;
+    $share_plugin_iframe.='&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=546431202104656" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>';
+    return $share_plugin_iframe;
+
+}
 ?>
