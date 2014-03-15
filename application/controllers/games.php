@@ -145,6 +145,7 @@ class Games extends CI_Controller {
 
 
     private function get_div_container($table, $game) {
+        $game_url = base_url().'index.php/games/view/'.$game->g_type.'/'.$game->g_name;
         $div = '<div class="container candid-div">
                     <div class="page-header container">
                         <p class="bg-info">
@@ -155,7 +156,8 @@ class Games extends CI_Controller {
                     </div>
                     <div>'
                         .$table.'
-                    </div>
+                    </div>'.
+                    get_comment_plugin($game_url).'
                 </div>';
         return $div;
 

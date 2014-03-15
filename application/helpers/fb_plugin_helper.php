@@ -12,7 +12,7 @@ function get_like_plugin($page_name) {
 
 // Pass the unique name of game like : 'http://localhost/index.php/games/get_game_div/1' i.e get_baseurl+gamelink
 function get_comment_plugin($page_name) {
-    $comment_plugin_div = '<div class="fb-comments" data-href="';
+    $comment_plugin_div = '<div style= "padding: 0px 0px 0px 80px" class="fb-comments" data-href="';
     $comment_plugin_div.= $page_name;
     $comment_plugin_div.= '" data-numposts="4" data-colorscheme="light"></div>';
     return $comment_plugin_div;

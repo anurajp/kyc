@@ -64,7 +64,7 @@ $autoload['libraries'] = array('email','form_validation');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('fb_plugin','simple_html_dom','wiki.php', 'form','url','cookie','email');
+$autoload['helper'] = array('fb_plugin','simple_html_dom','wiki', 'form','url','cookie','email');
 
 
 /*
