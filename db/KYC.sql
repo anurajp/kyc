@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2014 at 04:47 PM
+-- Generation Time: Mar 15, 2014 at 10:14 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `Game` (
   `gplace` varchar(128) NOT NULL,
   `zipcode` int(11) NOT NULL,
   `gpriority` int(11) NOT NULL DEFAULT '5',
+  `gcord` varchar(128) NOT NULL COMMENT 'latitude,longitude',
   PRIMARY KEY (`gid`),
   UNIQUE KEY `gname_2` (`gname`),
   KEY `gtype` (`gtype`),
@@ -107,9 +108,9 @@ CREATE TABLE IF NOT EXISTS `Game` (
 -- Dumping data for table `Game`
 --
 
-INSERT INTO `Game` (`gid`, `gname`, `gtype`, `gdate`, `winnercid`, `gcity`, `gstate`, `gcountry`, `gplace`, `zipcode`, `gpriority`) VALUES
-(1, 'Loksabha-2014-arvind-kejriwal-narendra-modi', 'Loksabha', '2014-04-07', NULL, 'Lukhnow', 'Uttar Pradesh', 'India', 'MG road ', 560055, 10),
-(2, 'Loksabha-Anuraj-Ankur-RBS', 'Loksabha', '2014-03-07', NULL, 'Bangalore', 'Karnataka', 'India', 'Amazon', 560055, 10);
+INSERT INTO `Game` (`gid`, `gname`, `gtype`, `gdate`, `winnercid`, `gcity`, `gstate`, `gcountry`, `gplace`, `zipcode`, `gpriority`, `gcord`) VALUES
+(1, 'Loksabha-2014-arvind-kejriwal-narendra-modi', 'Loksabha', '2014-04-07', NULL, 'Lukhnow', 'Uttar Pradesh', 'India', 'MG road ', 560055, 10, '23.181, 80.2514'),
+(2, 'Loksabha-Anuraj-Ankur-RBS', 'Loksabha', '2014-03-07', NULL, 'Bangalore', 'Karnataka', 'India', 'Amazon', 560055, 10, '23.4111,	80.0222');
 
 -- --------------------------------------------------------
 
