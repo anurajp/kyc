@@ -24,7 +24,7 @@ class Games_model extends CI_Model {
      */
 
     public function get_games($criteria, $limit = 0) {
-        $game_query = null;
+        //$this->db->cache_on();
         if($limit > 0) {
             $game_query = $this->db->get_where('Game', $criteria, $limit);
         } else {
@@ -184,6 +184,29 @@ class Games_model extends CI_Model {
 
     }
 
-
+    /**
+     * @param $game_type
+     * @param $field
+     * @param $use_dist
+     * @return mixed
+     *
+     * This method returns passed field(column) value, if distinct is used then only field is returned else gid, $field is returned
+     */
+    public function get_game_field_values($game_type, $field, $use_dist) {
+        //$this->db->cache_on();
+        if($use_dist) {
+            $this->db->select($field);
+            $this->db->distinct();
+        } else {
+            $this->db->select('gid, '. $field);
+        }
+        $this->db->where(array('gtype' => $game_type));
+        $this->db->order_by($field, "asc");
+        $field_query = $this->db->get('Game');
+        //$field_query = $this->db->query('select DISTINCT('.$field.') from Game G where G.gtype = ?', array($game_type));
+        $fields_result = $field_query->result_array();
+        //echo(var_dump($fields_result));
+        return $fields_result;
+    }
 
 } 
