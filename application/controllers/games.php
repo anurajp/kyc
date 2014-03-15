@@ -83,7 +83,8 @@ class Games extends CI_Controller {
         $this->output->cache(120);
     }
 
-    private function get_td_thumbnail($candidate, $like_plugin, $wiki_info_card) {
+    private function get_td_thumbnail($game,$candidate, $like_plugin, $wiki_info_card) {
+        $candidate_vote_url = base_url().'index.php/games/vote/'.$game->g_id.'/'.'fb/fb/'.$candidate->c_id;
 
         $cache_result = $this->cache->file->get('candidate_td_thumbnail_'.$candidate->c_id);
         if ( !empty($cache_result))
@@ -104,13 +105,12 @@ class Games extends CI_Controller {
                                         <img class="img-rounded candit_image" src="'.$img_url.'" alt="'.$candidate_name.'">
                                         <div class="caption">
                                             <h4><u>'.$candidate_name.'</u> ('.$candidate_team.')</h4>
-                                            <div class="bs-example" style="padding-bottom: 10px;">
-                                                <a href="#" class="btn btn-success">Vote</a> <!-- todo -->
-                                                <button class="btn btn-primary" data-toggle="modal" data-target=#'.$modal_id.'>
+                                            <div class="bs-example" style="padding-bottom: 10px;">'.
+                                                get_like_candidate_plugin($candidate_vote_url).
+                                                '&nbsp<button class="btn btn-primary" data-toggle="modal" data-target=#'.$modal_id.'>
                                                     View Details
                                                 </button>
                                             </div>
-                                            <strong> Current Votes :'.$votes.'</strong>
                                             <!-- Modal -->
                                             <div class="modal fade candid-modal" id="'.$modal_id.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog candid-modal-dialog">
@@ -183,7 +183,7 @@ class Games extends CI_Controller {
                 if(!empty($wiki_handle)) {
                     $wiki_info_card = get_info_card($wiki_handle);
                 }
-                $td = $this->get_td_thumbnail($candidate, $like_plugin, $wiki_info_card);
+                $td = $this->get_td_thumbnail($game,$candidate, $like_plugin, $wiki_info_card);
                 array_push($tds, $td);
             }
 

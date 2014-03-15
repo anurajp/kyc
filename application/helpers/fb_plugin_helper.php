@@ -19,10 +19,16 @@ function get_comment_plugin($page_name) {
 
 }
 
+function get_like_candidate_plugin($page_name){
+    $like_candidate_plugin = '<div class="fb-like" data-href=';
+    $like_candidate_plugin.= $page_name;
+    $like_candidate_plugin.='" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>';
+    return $like_candidate_plugin;
+}
 function get_share_plugin($page_name) {
-    $share_plugin_iframe = '<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2F';
+    $share_plugin_iframe = '<iframe src="//www.facebook.com/plugins/like.php?href=';
     $share_plugin_iframe.=$page_name;
-    $share_plugin_iframe.='&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=546431202104656" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>';
+    $share_plugin_iframe.='&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=546431202104656" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>';
     return $share_plugin_iframe;
 
 }
