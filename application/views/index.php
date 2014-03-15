@@ -9,7 +9,7 @@
             <p class="txt_slogan"><i>We let you discover new events like <a href="<?php echo(base_url()) ?>index.php/games/index/Loksabha">Loksabha elections 2014</a>, <a href="<?php echo(base_url()) ?>index.php/games/index/IPL">IPL 2014</a> etc and candidates. Vote your candidate to show your support</i></p>
             <ul class="list-inline">
                 <li>
-                    <a href="#">
+                    <a href="https://www.facebook.com/pages/Know-Your-Candidate/238982119620030">
                         <span class="social-icon-fb"></span>
                     </a>
                 </li>
