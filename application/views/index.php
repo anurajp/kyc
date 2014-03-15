@@ -6,7 +6,7 @@
     <div class="container">
         <div class="templatemo-slogan text-center container">
             <span class="txt_darkgrey">Welcome to </span><span class="txt_orange">Know your candidates</span>
-            <p class="txt_slogan"><i>We let you discover new events like <a href="index.php/games/index/Loksabha">Loksabha elections 2014</a>, <a href="index.php/games/index/IPL">IPL 2014</a> etc and candidates. Vote your candidate to show your support</i></p>
+            <p class="txt_slogan"><i>We let you discover new events like <a href="<?php echo(base_url())?>index.php/games/index/Loksabha">Loksabha elections 2014</a>, <a href="<?php echo(base_url())?>index.php/games/index/IPL">IPL 2014</a> etc and candidates. Vote your candidate to show your support</i></p>
             <ul class="list-inline">
                 <li>
                     <a href="#">
@@ -49,7 +49,11 @@
 
         <ol class="breadcrumb">
             <?php foreach ($states as $state): ?>
-                <li><a target="_blank" href="index.php/games/events/<?php echo $g_type; ?>/gstate/<?php echo $state['gstate']; ?>"><?php echo $state['gstate']; ?></a></li>
+                <li>
+                    <a target="_blank" href="<?php echo(base_url())?>index.php/games/events/<?php echo $g_type; ?>/gstate/<?php echo $state['gstate']; ?>">
+                        <span style="font-size: large"><?php echo $state['gstate']; ?></span>
+                    </a>
+                </li>
             <?php endforeach ?>
 
 

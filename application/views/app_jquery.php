@@ -13,7 +13,7 @@
                 return;
             }
 
-            var url = "http://localhost/kyc/index.php/games/render_drop_down_search/<?php echo $g_type; ?>/" + key + "/" + val;
+            var url = "<?php echo(base_url())?>index.php/games/render_drop_down_search/<?php echo $g_type; ?>/" + key + "/" + val;
 
             $.get(url, function(data,status){
 

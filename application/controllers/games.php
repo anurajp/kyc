@@ -328,7 +328,7 @@ class Games extends CI_Controller {
                         </tr>';
         foreach($games as $game) {
             $table_rows .= '<tr class="search_result_row" id="'.$game->g_name.'">';
-            $cand_csv = '<td> <a href="index.php/games/view/'.$g_type.'/'.$game->g_name.'" target="_blank">';
+            $cand_csv = '<td> <a href="'.base_url().'index.php/games/view/'.$g_type.'/'.$game->g_name.'" target="_blank">';
             $i = 0;
             $total = count($game->candidates);
             foreach($game->candidates as $candidate) {
