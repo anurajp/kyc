@@ -151,7 +151,7 @@ class Games extends CI_Controller {
                         <p class="bg-info">
                             <h3>'.$game->g_type.': '.$game->g_place.' | '. $game->g_city.' | '.$game->g_state.'
                                 <small>'.$game->g_date.'</small>
-                            </h3>
+                            </h3>'.get_social_share_plugin().'
                         </p>
                     </div>
                     <div>'

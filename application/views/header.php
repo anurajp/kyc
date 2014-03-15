@@ -66,6 +66,11 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
+<!-- Add This Social Share  Plugin https://www.addthis.com/get/sharing -->
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5324a9a41d6def65"></script>
+
+
 <div class="templatemo-top-bar" id="kyc-top">
     <div class="container">
         <div class="subheader">
