@@ -6,7 +6,11 @@
     <div class="container">
         <div class="templatemo-slogan text-center container">
             <span class="txt_darkgrey">Welcome to </span><span class="txt_orange">Know your candidates</span>
+<<<<<<< HEAD
             <p class="txt_slogan"><i>We let you discover new events like <a href="<?php echo(base_url())?>index.php/games/index/Loksabha">Loksabha elections 2014</a>, <a href="<?php echo(base_url())?>index.php/games/index/IPL">IPL 2014</a> etc and candidates. Vote your candidate to show your support</i></p>
+=======
+            <p class="txt_slogan"><i>We let you discover new events like <a href="<?php echo(base_url()) ?>index.php/games/index/Loksabha">Loksabha elections 2014</a>, <a href="<?php echo(base_url()) ?>index.php/games/index/IPL">IPL 2014</a> etc and candidates. Vote your candidate to show your support</i></p>
+>>>>>>> FETCH_HEAD
             <ul class="list-inline">
                 <li>
                     <a href="https://www.facebook.com/pages/Know-Your-Candidate/238982119620030">
