@@ -21,6 +21,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/googlemaps.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="/css/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -41,7 +42,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" href="http://bxslider.com/lib/jquery.bxslider.css" type="text/css" />
+    <!--<link rel="stylesheet" href="http://bxslider.com/lib/jquery.bxslider.css" type="text/css" />-->
 
 
      <meta charset=”utf-8”>
@@ -53,11 +54,11 @@
 
 <body>
 
-<div class="templatemo-top-bar" id="templatemo-top">
+<div class="templatemo-top-bar" id="kyc-top">
     <div class="container">
-        <!--<div class="subheader">
+        <div class="subheader">
 
-        </div> -->
+        </div>
         <div class="subheader">
             <div id="phone" class="pull-left">
                 <img src="/images/phone.png" alt="phone"/>
@@ -71,10 +72,6 @@
     </div>
 </div>
 <div class="templatemo-top-menu">
-
-
-
-
     <div class="container">
 
         <div class="form-group search-form" >
@@ -109,19 +106,15 @@
                 </div>
                 <div class="navbar-collapse collapse" id="templatemo-nav-bar">
                     <ul class="nav navbar-nav navbar-right" style="margin-top: 40px;">
-                        <li><a href="#templatemo-top">HOME</a></li>
-                        <li><a href="#templatemo-about">ABOUT</a></li>
-                        <li><a href="#templatemo-portfolio">PORTFOLIO</a></li>
-                        <li><a href="#templatemo-blog">BLOG</a></li>
-                        <li><a href="#templatemo-contact">CONTACT</a></li>
+                        <li><a href="<?php echo(base_url()) ?>#kyc-top">HOME</a></li>
+                        <li><a href="<?php echo(base_url()) ?>#kyc-welcome">ABOUT</a></li>
+                        <li><a href="<?php echo(base_url()) ?>#kyc-contact">CONTACT</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
 
             </div><!--/.container-fluid -->
 
         </div><!--/.navbar -->
-
-
     </div> <!-- /container -->
 </div>
 

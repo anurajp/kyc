@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array();
+$autoload['libraries'] = array('email','form_validation');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('fb_plugin','simple_html_dom','wiki.php');
+$autoload['helper'] = array('fb_plugin','simple_html_dom','wiki.php', 'form','url');
 
 
 /*
@@ -110,6 +110,7 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array();
+
 
 
 /* End of file autoload.php */
