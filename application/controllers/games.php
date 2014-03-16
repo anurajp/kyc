@@ -105,10 +105,10 @@ class Games extends CI_Controller {
                                         <img class="img-rounded candit_image" src="'.$img_url.'" alt="'.$candidate_name.'">
                                         <div class="caption">
                                             <h4><u>'.$candidate_name.'</u> ('.$candidate_team.')</h4>
-                                            <div class="bs-example" style="padding-bottom: 10px;">'.
+                                            <div class="bs-example" style="padding-bottom: 10px;"><h4>'.
                                                 get_like_candidate_plugin($candidate_vote_url).
-                                                '&nbsp<button class="btn btn-primary" data-toggle="modal" data-target=#'.$modal_id.'>
-                                                    View Details
+                                                '</h4><button class="btn btn-default btn-success btn-xs" data-toggle="modal" data-target=#'.$modal_id.'>
+                                                    <span class="glyphicon glyphicon-user"></span> View Details
                                                 </button>
                                             </div>
                                             <!-- Modal -->
