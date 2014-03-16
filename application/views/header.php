@@ -69,7 +69,22 @@
 <!-- Add This Social Share  Plugin https://www.addthis.com/get/sharing -->
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5324a9a41d6def65"></script>
-
+<!-- AddThis Smart Layers BEGIN -->
+<script type="text/javascript">
+    addthis.layers({
+        'theme' : 'transparent',
+        'share' : {
+            'position' : 'right',
+            'numPreferredServices' : 6
+        },
+        'follow' : {
+            'services' : [
+                {'service': 'facebook', 'id': 'pages/Know-Your-Candidate/238982119620030'}
+            ]
+        }
+    });
+</script>
+<!-- AddThis Smart Layers END -->
 
 <div class="templatemo-top-bar" id="kyc-top">
     <div class="container">
@@ -99,6 +114,7 @@
                 </select>
 
                 <input id="search_field" class="col-lg-8" type="text" placeholder="Type here" autocomplete="off">
+
             </form>
             <div id="search_results" hidden="hidden" class="search_results">
             </div>
