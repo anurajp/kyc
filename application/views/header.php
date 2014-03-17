@@ -42,7 +42,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <!--<link rel="stylesheet" href="http://bxslider.com/lib/jquery.bxslider.css" type="text/css" />-->
 
 
      <meta charset=”utf-8”>
@@ -86,17 +85,13 @@
 </script>
 <!-- AddThis Smart Layers END -->
 
-<div class="templatemo-top-bar" id="kyc-top">
+<div class="templatemo-top-bar" id="templatemo-top">
     <div class="container">
         <div class="subheader">
 
         </div>
         <div class="subheader">
             <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FKnow-Your-Candidate%2F238982119620030&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=546431202104656" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
-            <div id="email" class="pull-right">
-                <img src="/images/email.png" alt="email"/>
-                contact@website.com
-            </div>
         </div>
     </div>
 </div>
@@ -132,13 +127,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="" rel="nofollow"><img src="/images/kyc-logo.png" alt="logo"/></a>
+                    <a class="navbar-brand" href="<?php echo(base_url()) ?>" rel="nofollow"><img src="/images/kyc-logo.png" alt="Know Your Candidate"/></a>
                 </div>
                 <div class="navbar-collapse collapse" id="templatemo-nav-bar">
                     <ul class="nav navbar-nav navbar-right" style="margin-top: 40px;">
-                        <li><a href="<?php echo(base_url()) ?>#kyc-top">HOME</a></li>
-                        <li><a href="<?php echo(base_url()) ?>#kyc-welcome">ABOUT</a></li>
-                        <li><a href="<?php echo(base_url()) ?>#kyc-contact">CONTACT</a></li>
+                        <li><a href="#templatemo-top">HOME</a></li>
+                        <li><a href="#templatemo-about">ABOUT</a></li>
+                        <li><a href="#templatemo-contact">CONTACT</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
 

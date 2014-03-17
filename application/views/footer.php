@@ -1,4 +1,4 @@
-<div id="kyc-contact">
+<div id="templatemo-contact">
     <div class="container">
         <div class="row">
             <div class="templatemo-line-header head_contact">
