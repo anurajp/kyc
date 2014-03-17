@@ -8,8 +8,13 @@
 <head>
 
     <title>Know your candidate</title>
-    <meta name="keywords" content="urbanic, responsive, bootstrap, fluid layout, orange, white, free website template, templatemo" />
-    <meta name="description" content="Urbanic is free responsive template using Bootstrap which is compatible with mobile devices. This layout is provided by templatemo for free of charge." />
+    <meta name="keywords" content="Loksabha election polls 2014, Loksabha vote 2014, Loksabha schedule 2014, Loksabha search candidates, Loksabha candidates, Loksabha head to head,
+        Loksabha Constituencies, Loksabha Candidates party wise, Loksabha Candidates state wise,
+        Bhartiya Janta Party(BJP), Aam Aadmi Party(AAP), Congress,
+        BJP Loksabha Candidates, AAP Loksabha Candidates, Congress Loksabha Candidates, Janta Dal Loksabha candidates, BSP Loksabha candidates,
+        know your candidate, compare candidate, IPL, Indian premier leauge"/>
+    <meta name="description" content="Know you candidate is a platform which let you see, compare and vote candidates for different events like Loksabha elections 2014, IPL 2014, General elections. You can view detailed information
+        about your candidate, see poll results, search candidates. Currently we have enabled it for Loksabha 2014 where you can search and browse, candidates and parties by location, state, candidate name" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="shortcut icon" href="PUT YOUR FAVICON HERE">-->
@@ -138,11 +143,11 @@
                     <a class="navbar-brand" href="<?php echo(base_url()) ?>" rel="nofollow"><img src="/images/kyc-logo.png" alt="Know Your Candidate"/></a>
                 </div>
                 <div class="navbar-collapse collapse" id="templatemo-nav-bar">
-                    <ul class="nav navbar-nav navbar-right" style="margin-top: 40px;">
+                    <ul class="nav navbar-right navbar-nav" style="margin-top: 40px;">
 
-                        <li><a href="#templatemo-top">HOME</a></li>
-                        <li><a href="#templatemo-about">ABOUT</a></li>
-                        <li><a href="#templatemo-contact">CONTACT</a></li>
+                        <li><a href="<?php echo(base_url()) ?>index.php">HOME</a></li>
+                        <li><a href="<?php echo(base_url()) ?>index.php#kyc-welcome">ABOUT</a></li>
+                        <li><a href="<?php echo(base_url()) ?>index.php#kyc-contact">CONTACT</a></li>
 
                     </ul>
                 </div><!--/.nav-collapse -->

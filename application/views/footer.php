@@ -1,4 +1,4 @@
-<div id="templatemo-contact">
+<div id="kyc-contact">
     <div class="container">
         <div class="row">
             <div class="templatemo-line-header head_contact">
@@ -39,7 +39,7 @@
     </div><!-- /.container -->
 </div><!-- /#templatemo-contact -->
 
-<div class="templatemo-team" id="templatemo-about">
+<div class="templatemo-team" id="kyc-meet-us">
     <div class="container">
         <div class="row">
             <div class="templatemo-line-header">
