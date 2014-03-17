@@ -25,6 +25,7 @@ function get_like_candidate_plugin($page_name){
     $like_candidate_plugin.='" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>';
     return $like_candidate_plugin;
 }
+
 function get_share_plugin($page_name) {
     $share_plugin_iframe = '<iframe src="//www.facebook.com/plugins/like.php?href=';
     $share_plugin_iframe.=$page_name;

@@ -40,6 +40,7 @@ class Games_model extends CI_Model {
         }
 
         $games = array();
+
         foreach($game_rows as $game_row) {
             array_push($games, new Game($game_row, $this->get_candidates($game_row['gid'])));
         }
@@ -54,8 +55,10 @@ class Games_model extends CI_Model {
      * Returns Candidate's aggregated data for a game
      */
     private function get_candidates($g_id) {
+        //echo($g_id);
         $candidates_query = $this->db->query("select C.* FROM Candidates C, GameCandidates GC where GC.gid = ? and GC.cid = C.cid", array($g_id));
         $candidate_rows = $candidates_query->result_array();
+        //echo(var_dump($candidate_rows));
         //log_message('debug', sizeof($candidate_rows), false);
         if(empty($candidate_rows)) {
             return array();
@@ -65,10 +68,11 @@ class Games_model extends CI_Model {
         foreach($candidate_rows as $candidate_row) {
             $c_md_query = $this->db->get_where('CandidateMetadata', array('cid' => $candidate_row['cid']));
             $c_md = $c_md_query->result_array();
-            if(!empty($c_md)) {
-                $votes = $this->get_votes_count($g_id, $candidate_row['cid']);
-                array_push($candidates, new Candidate($candidate_row, $c_md, $votes));
+            if(empty($c_md)) {
+                $c_md = array();
             }
+            array_push($candidates, new Candidate($candidate_row, $c_md, 0));
+
         }
 
         return $candidates;
@@ -164,9 +168,13 @@ class Games_model extends CI_Model {
      * Returns all matching candidate's games where candidate's name matches a prefix
      */
     public function get_games_for_candidate($g_type, $c_name_prefix) {
-        $prefix_regex = $c_name_prefix . '%';
+        $prefix_regex = '%'.$c_name_prefix . '%'; //I know disallowing prefix match sucks performance but with small data givign preference to customer satisfaction
         $gids_query = $this->db->query('select DISTINCT(G.gid) from Game G where G.gtype  = ? and G.gid IN (select GC.gid from GameCandidates GC where GC.cid IN (select DISTINCT(C.cid) from Candidates C where C.cfirstname LIKE ? or C.clastname LIKE ?))', array($g_type, $prefix_regex, $prefix_regex));
+        return $this->get_games_from_gids_query($gids_query);
 
+    }
+
+    private function get_games_from_gids_query($gids_query) {
         if($gids_query->num_rows() > 0) {
             $gids = array();
 
@@ -181,8 +189,30 @@ class Games_model extends CI_Model {
         }
 
         return array();
-
     }
+
+
+    /**
+     * @param $g_type
+     *
+     * Get distinct teams for game_type
+     */
+    public function get_games_by_team($g_type, $team) {
+        $gids_query = $this->db->query('select DISTINCT(G.gid) from Game G where G.gtype  = ? and G.gid IN (select GC.gid from GameCandidates GC where GC.cid IN (select DISTINCT(C.cid) from Candidates C where C.cteam = ?))', array($g_type, $team));
+        return $this->get_games_from_gids_query($gids_query);
+    }
+
+    /**
+     * @param $g_type
+     *
+     * Get distinct teams for game_type
+     */
+    public function get_distinct_teams($g_type) {
+        $field_query = $this->db->query('select DISTINCT(cteam) from Candidates C, Game G, GameCandidates GC where G.gtype = ? and GC.cid = C.cid and GC.gid = G.gid', array($g_type));
+        return $field_query->result_array();
+    }
+
+
 
     /**
      * @param $game_type

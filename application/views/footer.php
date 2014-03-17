@@ -97,37 +97,7 @@
 <script type='text/javascript' src='/js/logging.js'></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type='text/javascript' src='/js/jquery.ui.map.min.js'></script>
-<script src="https://raw.github.com/placemarker/jQuery-MD5/master/jquery.md5.js" type="text/javascript"></script>
-<script type="text/javascript">
-    /*
-    $(document).ready(function(){
 
-        function getBrowserFingerprint()
-        {
-            var sFP = "";
-            sFP+="Resolution:"+window.screen.availWidth+"x"+window.screen.availHeight+"\n";
-            sFP+="ColorDepth:"+screen.colorDepth+"\n";
-            sFP+="UserAgent:"+navigator.userAgent+"\n";
-            sFP+="Timezone:"+(new Date()).getTimezoneOffset()+"\n";
-            sFP+="Language:"+(navigator.language || navigator.userLanguage)+"\n";
-            document.cookie="sFP";
-            if (typeof navigator.cookieEnabled != "undefined"
-                && navigator.cookieEnabled == true
-                && document.cookie.indexOf("sFP") != -1)
-                sFP+="Cookies:true\n";
-            else
-                sFP+="Cookies:false\n"
-            sFP+="Plugins:"+jQuery.map(navigator.plugins, function(oElement)
-            {
-                return "\n"+oElement.name+"-"+oElement.version;
-            });
-            return $.md5(sFP);
-        }
-
-        var result = getBrowserFingerprint() + "anuraj";
-
-    });*/
-</script>
 
 <!--<script src="http://pioul.fr/ext/jquery-diyslider/jquery.diyslider.min.js"></script>-->
 <!--<script src="http://bxslider.com/lib/jquery.bxslider.js" type="text/javascript"></script>-->
