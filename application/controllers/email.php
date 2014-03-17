@@ -39,8 +39,10 @@ class Email extends CI_Controller {
             $this->email->message($this->input->post('imsg'));
 
             $this->email->send();
-            echo '<h4 class="bg-success">Thank you, we\'ve recieved your message. We will get back to you shortly </h4>';
-            echo $this->email->print_debugger();
+            echo '<h4><strong>Thank you, we\'ve recieved your message. We will get back to you shortly.</strong></h4>';
+
+           // commenting in prod
+           // echo $this->email->print_debugger();
         }
 
 
