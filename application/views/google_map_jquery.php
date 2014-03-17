@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function(){
-        $('#map_canvas').gmap({center:'23.181,80.2514', zoom:5,'scrollwheel':false}).bind('init', function(evt, map) {
+        $('#map_canvas').gmap({center:'23.181,80.2514', zoom:6,'scrollwheel':false}).bind('init', function(evt, map) {
 
             <?php foreach($gids_cord as $gid_cord):?>
             $('#map_canvas').gmap('addMarker', { 'foo': 'bar', 'position': <?php echo "'".$gid_cord['gcord']."'" ?> }).click(function() {

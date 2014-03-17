@@ -7,6 +7,7 @@
         <div class="templatemo-slogan text-center container">
             <span class="txt_darkgrey">Welcome to </span><span class="txt_orange">Know your candidates</span>
             <p class="txt_slogan"><i>We let you discover new events like <a href="<?php echo(base_url())?>index.php/games/index/Loksabha">Loksabha elections 2014</a>, <a href="<?php echo(base_url())?>index.php/games/index/IPL">IPL 2014</a> etc and candidates. Vote your candidate to show your support</i></p>
+
             <ul class="list-inline">
                 <li>
                     <a href="https://www.facebook.com/pages/Know-Your-Candidate/238982119620030">
@@ -55,14 +56,20 @@
                     </a>
                 </li>
             <?php endforeach ?>
+        </ol>
 
-
+        <ol class="breadcrumb">
+            <?php foreach ($teams as $team): ?>
+                <li>
+                    <a target="_blank" href="<?php echo(base_url())?>index.php/games/team/<?php echo $g_type; ?>/<?php echo $team['cteam']; ?>">
+                        <span style="font-size: large"><?php echo $team['cteam']; ?></span>
+                    </a>
+                </li>
+            <?php endforeach ?>
         </ol>
 
 
-
-
-        <div id="map_canvas" style="width:1000px;height:400px"></div>
+        <div id="map_canvas" style="width:1100px;height:600px"></div>
         <img id="marker_result_loading" src="/images/loading.gif" style="width:100px;height:40px;align-self: center;margin-left: 500px;display: none">
         <div id="marker_click_result">
 

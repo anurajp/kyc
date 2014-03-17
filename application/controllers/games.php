@@ -18,7 +18,7 @@ class Games extends CI_Controller {
 
         $divs = '';
         foreach($candid_divs as $candid_div) {
-            $divs .= '<div class="slider">'.$candid_div.'</div>';
+            $divs .= '<div>'.$candid_div.'</div>';
         }
 
         return $divs;
@@ -30,7 +30,7 @@ class Games extends CI_Controller {
         //$criteria = array('gpriority >= ' => '8');
         /*$games =  $this->games_model->get_games($criteria, 5);
 
-        $div_containers = $this->generate_div_containers($games);
+        $div_containers = $this->($games);
         $carousel_divs = $this->get_carousel_divs($div_containers);
 
 
@@ -39,11 +39,13 @@ class Games extends CI_Controller {
 
 
         $states = $this->games_model->get_game_field_values($g_type, 'gstate', true);
+        $teams = $this->games_model->get_distinct_teams($g_type);
         $gids_cord = $this->games_model->get_game_field_values($g_type, 'gcord', false);
         //$gids_cord = $this->games_model->get_cord('Loksabha');
         $data['states'] = $states;
         $data['gids_cord'] = $gids_cord;
         $data['g_type'] = $g_type;
+        $data['teams'] = $teams;
         $this->load->view("header");
         $this->load->view("index", $data);
         $this->load->view("footer");
@@ -66,8 +68,10 @@ class Games extends CI_Controller {
             show_404();
             return;
         }
+        $g_name = urldecode($g_name);
 
         $games = $this->get_games($g_type, $g_name);
+
         //echo(var_dump($games));
         if(empty($games)) {
             show_404();
@@ -83,8 +87,41 @@ class Games extends CI_Controller {
         $this->output->cache(120);
     }
 
+    public function team($g_type, $team) {
+        /*
+        $this->load->view("header");
+        $this->load->view("index");
+        $this->load->view("footer");
+
+        return;*/
+
+        $team = urldecode($team);
+
+        //Input validation
+        if(empty($g_type) or empty($team)) {
+            show_404();
+            return;
+        }
+
+        $games = $this->games_model->get_games_by_team($g_type, $team);
+        $this->display_events($games, $g_type);
+    }
+
+    private function display_events($games, $g_type) {
+        $games_table = '<h2 class="container"> Sorry! No results found </h2>';
+        if(!empty($games)) {
+            $games_table = $this->get_games_table($games, $g_type);
+        }
+        $data['events'] = $games_table;
+        $data['g_type'] = $g_type;
+        $this->load->view("header");
+        $this->load->view("events", $data);
+        $this->load->view("footer");
+        $this->load->view("app_jquery", $data);
+        $this->output->cache(120);
+    }
+
     private function get_td_thumbnail($game,$candidate, $like_plugin, $wiki_info_card) {
-        $candidate_vote_url = base_url().'index.php/games/vote/'.$game->g_id.'/'.'fb/fb/'.$candidate->c_id;
 
         $cache_result = $this->cache->file->get('candidate_td_thumbnail_'.$candidate->c_id);
         if ( !empty($cache_result))
@@ -93,16 +130,37 @@ class Games extends CI_Controller {
             return $cache_result;
         }
 
+        $candidate_vote_url = base_url().'index.php/games/vote/'.$game->g_id.'/'.'fb/fb/'.$candidate->c_id;
         $candidate_name = $candidate->c_firstname.' '.$candidate->c_lastname;
         $candidate_team = $candidate->c_team;
-        $img_url = $candidate->c_metadata['img'];
+        $img_url = @$candidate->c_metadata['img'];
+        if(empty($img_url)) { //TODO remove hardcoding after db entry of images
+            //echo($candidate->c_team);
+            switch ($candidate->c_team)
+            {
+                case "Aam Aadmi Party":
+                    $img_url = "/images/AAP.jpg";
+                    break;
+                case "BJP":
+                    $img_url = "/images/BJP.jpg";
+                    break;
+                case "Congress":
+                    $img_url = "/images/Congress.jpg";
+                    break;
+                case "Janta Dal":
+                    $img_url = "/images/JDU.jpg";
+                    break;
+                default:
+                    $img_url = "/images/anonymous.png";
+            }
+        }
         $modal_id = 'modal_id_'.$candidate->c_id;
         $votes = $candidate->c_votes;
         $td_thumbnail = '<td>
                         <ul class="thumbnails">
                                 <ol class="span5 offset2">
                                 <div class="thumbnail">
-                                        <img class="img-rounded candit_image" src="'.$img_url.'" alt="'.$candidate_name.'">
+                                        <img class="candit_image" src="'.$img_url.'" alt="'.$candidate_name.'">
                                         <div class="caption">
                                             <h4><u>'.$candidate_name.'</u> ('.$candidate_team.')</h4>
                                             <div class="bs-example" style="padding-bottom: 10px;"><h4>'.
@@ -183,7 +241,7 @@ class Games extends CI_Controller {
                 if(!empty($wiki_handle)) {
                     $wiki_info_card = get_info_card($wiki_handle);
                 }
-                $td = $this->get_td_thumbnail($game,$candidate, $like_plugin, $wiki_info_card);
+                $td = $this->get_td_thumbnail($game, $candidate, $like_plugin, $wiki_info_card);
                 array_push($tds, $td);
             }
 
@@ -218,6 +276,8 @@ class Games extends CI_Controller {
 
 
     private function get_games($g_type, $g_name) {
+        $g_name = urldecode($g_name);
+
         //Game query
         $criteria = array('gname' => $g_name, 'gtype' => $g_type);
         return $this->games_model->get_games($criteria);
@@ -273,7 +333,7 @@ class Games extends CI_Controller {
 
 
     public function render_drop_down_search($g_type, $key, $value) {
-
+        $value = urldecode($value);
         $games = array();
         switch ($key)
         {
@@ -288,9 +348,6 @@ class Games extends CI_Controller {
                 break;
             case "state":
                 $games = $this->search_games($g_type, 'gstate', $value);
-                break;
-            case "zipcode":
-                $games = $this->search_games($g_type, 'zipcode', $value);
                 break;
             default:
                 return;
@@ -325,7 +382,6 @@ class Games extends CI_Controller {
                         <th>Venue</th>
                         <th>City</th>
                         <th>State</th>
-                        <th>Zipcode</th>
                         <th>Date</th>
                         </tr>';
         foreach($games as $game) {
@@ -343,7 +399,7 @@ class Games extends CI_Controller {
             $cand_csv .= '</a></td>';
             $table_rows .= $cand_csv;
             $table_rows .= '<td>'.$game->g_type.'</td>'
-                .'<td>'.$game->g_place.'</td><td> '.$game->g_city.'</td><td>'.$game->g_state.'</td><td>'.$game->zipcode.'</td>'
+                .'<td>'.$game->g_place.'</td><td> '.$game->g_city.'</td><td>'.$game->g_state.'</td>'
                 .'<td>'.$game->g_date.'</td>';
             $table_rows .= '</tr>';
         }
@@ -352,6 +408,7 @@ class Games extends CI_Controller {
     }
 
     public function events($g_type, $key = '', $value = '') {
+        $value = urldecode($value);
         if(empty($g_type)) {
             show_404();
         }
@@ -363,17 +420,7 @@ class Games extends CI_Controller {
         }
 
         $games = $this->games_model->get_games($criteria);
-        $games_table = '<h2 class="container"> Sorry! No results found </h2>';
-        if(!empty($games)) {
-            $games_table = $this->get_games_table($games, $g_type);
-        }
-        $data['events'] = $games_table;
-        $data['g_type'] = $g_type;
-        $this->load->view("header");
-        $this->load->view("events", $data);
-        $this->load->view("footer");
-        $this->load->view("app_jquery", $data);
-        $this->output->cache(120);
+        $this->display_events($games, $g_type);
 
     }
 

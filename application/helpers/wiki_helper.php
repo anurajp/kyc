@@ -11,4 +11,5 @@ function get_info_card($wiki_handle) {
     return $info_card_table;
 }
 
+
 ?>
