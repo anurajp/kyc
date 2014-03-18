@@ -13,6 +13,7 @@
                     $.get("<?php echo(base_url())?>index.php/games/get_game_div/<?php echo $gid_cord['gid'] ?>",function(data,status){
 
                         $( "#marker_click_result" ).empty().append( data).fadeIn("slow");
+                        FB.XFBML.parse();
 
                         $('html, body').animate({
                             scrollTop: parseInt($("#marker_click_result").offset().top)
