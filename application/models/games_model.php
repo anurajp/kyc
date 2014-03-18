@@ -87,7 +87,8 @@ class Games_model extends CI_Model {
      */
     public function get_votes_count($g_id, $c_id) {
         $count_query = $this->db->query("select count(*) as numVotes FROM VoteTracking where gid = ? and cid = ?", array($g_id, $c_id));
-        return $count_query->row_array()['numVotes'];
+        return 1;
+        //return $count_query->row_array()['numVotes']; //commenting as this function is not used adn it is causing error in prod
     }
 
     /**

@@ -7,7 +7,7 @@
         <div class="templatemo-slogan text-center container">
             <span class="txt_darkgrey">Welcome to </span><span class="txt_orange">Know your candidates</span>
             <p class="txt_slogan"><i>We let you discover new events like <a href="<?php echo(base_url())?>index.php/games/index/Loksabha">Loksabha elections 2014</a>, <a href="<?php echo(base_url())?>index.php/games/index/IPL">IPL 2014</a> etc and candidates. Vote your candidate to show your support</i></p>
-            <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FKnow-Your-Candidate%2F238982119620030&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=546431202104656" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+            <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.knowyourcandidate.in&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=546431202104656" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
             <!--
             <ul class="list-inline">
                 <li>

@@ -87,6 +87,10 @@ class Games extends CI_Controller {
         $this->output->cache(120);
     }
 
+    public function candidate($g_type, $g_name, $candidate) {
+        $this->view($g_type,$g_name);
+    }
+
     public function team($g_type, $team) {
         /*
         $this->load->view("header");
@@ -106,6 +110,8 @@ class Games extends CI_Controller {
         $games = $this->games_model->get_games_by_team($g_type, $team);
         $this->display_events($games, $g_type);
     }
+
+
 
     private function display_events($games, $g_type) {
         $games_table = '<h2 class="container"> Sorry! No results found </h2>';
@@ -130,7 +136,7 @@ class Games extends CI_Controller {
             return $cache_result;
         }
 
-        $candidate_vote_url = base_url().'index.php/games/vote/'.$game->g_id.'/'.'fb/fb/'.$candidate->c_id;
+        $candidate_vote_url = base_url().'index.php/games/candidate/'.$game->g_type.'/'.$game->g_name.'/'.$candidate->c_id;
         $candidate_name = $candidate->c_firstname.' '.$candidate->c_lastname;
         $candidate_team = $candidate->c_team;
         $img_url = @$candidate->c_metadata['img'];
