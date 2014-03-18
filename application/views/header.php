@@ -17,7 +17,8 @@
         about your candidate, see poll results, search candidates. Currently we have enabled it for Loksabha 2014 where you can search and browse, candidates and parties by location, state, candidate name" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="shortcut icon" href="PUT YOUR FAVICON HERE">-->
+
+    <link rel="shortcut icon" href="/images/kyc-favicon.png">
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
