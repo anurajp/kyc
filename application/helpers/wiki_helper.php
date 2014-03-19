@@ -1,7 +1,7 @@
 <?php
 
 function get_info_card($wiki_handle) {
-    $html = file_get_html('https://en.wikipedia.org/wiki/'.urlencode($wiki_handle));
+    $html = file_get_html('https://en.wikipedia.org/wiki/'.$wiki_handle);
     //echo($html);
     $info_card = $html->find ( 'table[class=vcard]' );
     $info_card_table = "";

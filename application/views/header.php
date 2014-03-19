@@ -106,7 +106,7 @@
 
         </div>
         <div class="subheader">
-            <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.knowyourcandidate.in&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=546431202104656" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+            <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FKnow-Your-Candidate%2F238982119620030&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=546431202104656" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
         </div>
     </div>
 </div>
