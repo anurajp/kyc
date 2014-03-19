@@ -1,9 +1,8 @@
-<?php include('chitika_ads.php') ?>
-
+<?php include('ads/flipkart_horizontal.php') ?>
 <?php foreach ($divs as $div):?>
 
     <?php echo $div;?>
 
 <?php endforeach;?>
-
-<?php include('infolinks.php') ?>
+<?php include('ads/amazon_horizontal_banner.php') ?>
+<?php include('ads/infolinks.php') ?>

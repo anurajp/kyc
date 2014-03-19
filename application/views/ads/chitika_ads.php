@@ -1,6 +1,4 @@
-<div id="chitika_ads">
-    <div class="container">
-        <div>
+<div class="container">
             <script type="text/javascript">
                 ( function() {
                     if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
@@ -14,6 +12,4 @@
                     try { document.getElementsByTagName('head')[0].appendChild(s); } catch(e) { document.write(s.outerHTML); }
                 }());
             </script>
-        </div>
-    </div>
 </div>
