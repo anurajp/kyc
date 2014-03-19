@@ -396,7 +396,7 @@ class Games extends CI_Controller {
             $total = count($game->candidates);
             foreach($game->candidates as $candidate) {
                 $i++;
-                $cand_csv .= $candidate->c_firstname.' '.$candidate->c_lastname;
+                $cand_csv .= $candidate->c_firstname.' '.$candidate->c_lastname.'('.$candidate->c_team.')';
                 if($i != $total) {
                     $cand_csv .= ' vs ';
                 }
