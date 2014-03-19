@@ -13,7 +13,7 @@
                 <p>Want to tell us about new or missing events or candidates, drop a message</p>
                 <p><img src="/images/location.png" alt="icon 1" /> 8D, Vega Tata Aquila Heights Bangalore</p>
                 <p><img src="/images/phone1.png"  alt="icon 2" /> +91-8105719832</p>
-                <p><img src="/images/globe.png" alt="icon 3" /><a class="link_orange" href="#"><span class="txt_orange">www.know-your-candidates.in</span></a></p>
+                <p><img src="/images/globe.png" alt="icon 3" /><a class="link_orange" href="#"><span class="txt_orange">www.knowyourcandidate.in</span></a></p>
 
                 <!--<form id="feedback-form" class="form-horizontal" action="http://localhost/index.php/email/send">-->
                 <?php echo form_open('email/send', array('id'=>"feedback-form","class"=>"form-horizontal")); ?>

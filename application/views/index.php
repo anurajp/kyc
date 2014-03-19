@@ -87,8 +87,22 @@
          <div id="marker_click_result">
          </div>
 
-        <div id="marker_click_div">
+
+        <div id="god">
+
+
+            <h3 class="templatemo-service-item-header">Game of the day</h3>
+
+
             <?php include('ads/flipkart_horizontal.php') ?>
+
+            <?php
+                if(!empty($gods)) {
+                    foreach($gods as $god) {
+                        echo($god);
+                    }
+                }
+            ?>
         </div>
     </div>
 

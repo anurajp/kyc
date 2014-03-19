@@ -27,14 +27,12 @@ class Games extends CI_Controller {
     public function index($g_type = 'Loksabha') {
 
         //Game query
-        //$criteria = array('gpriority >= ' => '8');
-        /*$games =  $this->games_model->get_games($criteria, 5);
+        $criteria = array('gpriority >= ' => '8');
+        $games =  $this->games_model->get_games($criteria, 5);
 
-        $div_containers = $this->($games);
-        $carousel_divs = $this->get_carousel_divs($div_containers);
+        $gods = $this->generate_div_containers($games);
 
 
-        $data['carousel_divs'] = $carousel_divs;*/
 
 
 
@@ -45,6 +43,7 @@ class Games extends CI_Controller {
         $data['states'] = $states;
         $data['gids_cord'] = $gids_cord;
         $data['g_type'] = $g_type;
+        $data['gods'] = $gods;
         $data['teams'] = $teams;
         $this->load->view("header");
         $this->load->view("index", $data);
@@ -52,7 +51,7 @@ class Games extends CI_Controller {
         $this->load->view("google_map_jquery", $data);
         $this->load->view("app_jquery", $data);
 
-        $this->output->cache(120);
+        $this->output->cache(720);
     }
 
     public function view($g_type, $g_name) {
@@ -84,7 +83,7 @@ class Games extends CI_Controller {
         $this->load->view("comparision", $data);
         $this->load->view("footer");
         $this->load->view("app_jquery", $data);
-        $this->output->cache(120);
+        $this->output->cache(720);
     }
 
     public function candidate($g_type, $g_name, $candidate) {

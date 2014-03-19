@@ -13,8 +13,8 @@
         Bhartiya Janta Party(BJP), Aam Aadmi Party(AAP), Congress,
         BJP Loksabha Candidates, AAP Loksabha Candidates, Congress Loksabha Candidates, Janta Dal Loksabha candidates, BSP Loksabha candidates,
         know your candidate, compare candidate, IPL, Indian premier leauge"/>
-    <meta name="description" content="Know you candidate is a platform which let you see, compare and vote candidates for different events like Loksabha elections 2014, IPL 2014, General elections. You can view detailed information
-        about your candidate, see poll results, search candidates. Currently we have enabled it for Loksabha 2014 where you can search and browse, candidates and parties by location, state, candidate name" />
+    <meta name="description" content="Know you candidate is a platform which help you discover, compare and vote candidates for different events like Loksabha elections 2014, IPL 2014, General elections. You can view detailed information
+        about your candidate, see poll results, search candidates. Currently we have enabled it for Loksabha 2014 where you can browse political parties and see head to head results by constituencies" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

@@ -2,7 +2,7 @@
     $(document).ready(function(){
         $('#map_canvas').gmap({center:'23.181,80.2514', zoom:5,'scrollwheel':false}).bind('init', function(evt, map) {
             //this.set('MarkerClusterer', new MarkerClusterer(this.get('map'), this.get('markers')));
-            $( "#marker_click_div" ).hide();
+
             <?php foreach($gids_cord as $gid_cord):?>
                 var gmap = $('#map_canvas').gmap('addMarker', {
                     html: '<h1><?php echo(base_url())?>index.php/games/get_game_div/<?php echo $gid_cord['gid'] ?></h1>',
@@ -22,7 +22,7 @@
                             scrollTop: parseInt($("#marker_click_result").offset().top)
                         }, 2000);
                         $('#marker_result_loading').hide();
-                        $( "#marker_click_div" ).show();
+
 
                     });
 
