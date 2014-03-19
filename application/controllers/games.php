@@ -201,8 +201,8 @@ class Games extends CI_Controller {
                                 </ol>
                         </ul>
                     </td>';
-        // Save into the cache for 30 minutes
-        $this->cache->file->save('candidate_td_thumbnail_'.$candidate->c_id, $td_thumbnail, 1800);
+        // Save into the cache for 1 day
+        $this->cache->file->save('candidate_td_thumbnail_'.$candidate->c_id, $td_thumbnail, 86400);
         return $td_thumbnail;
     }
 
