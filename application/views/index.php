@@ -71,8 +71,26 @@
             <?php endforeach ?>
         </ol>
 
+        <div style="width: 100%; overflow: hidden;">
+            <div id="map_canvas" style="width:900px;height:600px; float: left;">
 
-        <div id="map_canvas" style="width:1000px;height:500px"></div>
+            </div>
+            <div style="margin-left: 620px;">
+                <script type="text/javascript">
+                    ( function() {
+                        if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+                        var unit = {"publisher":"anurajp","width":200,"height":600,"sid":"Chitika Default"};
+                        var placement_id = window.CHITIKA.units.length;
+                        window.CHITIKA.units.push(unit);
+                        document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+                        var s = document.createElement('script');
+                        s.type = 'text/javascript';
+                        s.src = '//cdn.chitika.net/getads.js';
+                        try { document.getElementsByTagName('head')[0].appendChild(s); } catch(e) { document.write(s.outerHTML); }
+                    }());
+                </script>
+            </div>
+         </div>
         <img id="marker_result_loading" src="/images/loading.gif" style="width:100px;height:40px;align-self: center;margin-left: 500px;display: none">
         <div id="marker_click_result">
 
