@@ -94,10 +94,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"  type="text/javascript"></script>
-<script src="/js/stickUp.min.js"  type="text/javascript"></script>
-<script src="/js/colorbox/jquery.colorbox-min.js"  type="text/javascript"></script>
-<script src="/js/templatemo_script.js"  type="text/javascript"></script>
-<script type='text/javascript' src='/js/logging.js'></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type='text/javascript' src='/js/jquery.ui.map.min.js'></script>
 <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js" type="text/javascript"></script>
