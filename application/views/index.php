@@ -71,7 +71,10 @@
             <?php endforeach ?>
         </ol>
 
+
+
         <div style="width: 100%; overflow: hidden;">
+            <span> <b> Click on map markers to view details about an event</b>&nbsp;</span>
             <div id="map_canvas" style="width:900px;height:600px; float: left;">
 
             </div>
@@ -99,9 +102,6 @@
 
 
 </div>
-
-
-
 
 
 

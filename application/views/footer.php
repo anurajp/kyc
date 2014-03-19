@@ -1,14 +1,3 @@
-<div id="kyc-ads">
-    <div class="container">
-        <script type="text/javascript">
-            var infolinks_pid = 2060295;
-            var infolinks_wsid = 0;
-        </script>
-        <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
-    </div>
-</div>
-
-
 <div id="kyc-contact">
     <div class="container">
         <div class="row">
@@ -51,7 +40,7 @@
 </div><!-- /#templatemo-contact -->
 
 
-
+<!--
 <div class="templatemo-team" id="kyc-meet-us">
     <div class="container">
         <div class="row">
@@ -98,7 +87,8 @@
             </li>
         </ul>
     </div>
-</div><!-- /.templatemo-team -->
+</div> -->
+<!-- /.templatemo-team -->
 
 
 
