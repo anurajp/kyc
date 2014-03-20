@@ -32,10 +32,6 @@ class Games extends CI_Controller {
 
         $gods = $this->generate_div_containers($games);
 
-
-
-
-
         $states = $this->games_model->get_game_field_values($g_type, 'gstate', true);
         $teams = $this->games_model->get_distinct_teams($g_type);
         $gids_cord = $this->games_model->get_game_field_values($g_type, 'gcord', false);
@@ -45,7 +41,8 @@ class Games extends CI_Controller {
         $data['g_type'] = $g_type;
         $data['gods'] = $gods;
         $data['teams'] = $teams;
-        $this->load->view("header");
+        $data['title'] = 'Know Your Candidate '. $g_type . ' : Search, Browse and Vote Candidates';
+        $this->load->view("header", $data);
         $this->load->view("index", $data);
         $this->load->view("footer");
         $this->load->view("google_map_jquery", $data);
@@ -78,8 +75,9 @@ class Games extends CI_Controller {
         //echo(var_dump($games));
         $data['divs'] = $this->generate_div_containers($games);
         $data['g_type'] = $g_type;
+        $data['title'] = $g_type . ' '. str_replace('_', ' ', $g_name);
         //echo(var_dump($data['divs']));
-        $this->load->view("header");
+        $this->load->view("header", $data);
         $this->load->view("comparision", $data);
         $this->load->view("footer");
         $this->load->view("app_jquery", $data);
@@ -107,19 +105,21 @@ class Games extends CI_Controller {
         }
 
         $games = $this->games_model->get_games_by_team($g_type, $team);
-        $this->display_events($games, $g_type);
+        $title = $team.' '.$g_type.' Candidates head to head';
+        $this->display_events($games, $g_type, $title);
     }
 
 
 
-    private function display_events($games, $g_type) {
+    private function display_events($games, $g_type, $title) {
         $games_table = '<h2 class="container"> Sorry! No results found </h2>';
         if(!empty($games)) {
             $games_table = $this->get_games_table($games, $g_type);
         }
         $data['events'] = $games_table;
         $data['g_type'] = $g_type;
-        $this->load->view("header");
+        $data['title'] = $title;
+        $this->load->view("header", $data);
         $this->load->view("events", $data);
         $this->load->view("footer");
         $this->load->view("app_jquery", $data);
@@ -425,7 +425,8 @@ class Games extends CI_Controller {
         }
 
         $games = $this->games_model->get_games($criteria);
-        $this->display_events($games, $g_type);
+        $title = $g_type.' '.$value.' Candidates head to head';
+        $this->display_events($games, $g_type, $title);
 
     }
 

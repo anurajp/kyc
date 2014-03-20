@@ -7,7 +7,9 @@
 
 <head>
 
-    <title>Know your candidate</title>
+    <title>
+        <?php echo($title) ?>
+    </title>
     <meta name="keywords" content="Loksabha election polls 2014, Loksabha vote 2014, Loksabha schedule 2014, Loksabha search candidates, Loksabha candidates, Loksabha head to head,
         Loksabha Constituencies, Loksabha Candidates party wise, Loksabha Candidates state wise,
         Bhartiya Janta Party(BJP), Aam Aadmi Party(AAP), Congress,
@@ -51,9 +53,7 @@
 
 
      <meta charset=”utf-8”>
-    <title>
-        Welcome to KYC
-    </title>
+
 </head>
 
 
