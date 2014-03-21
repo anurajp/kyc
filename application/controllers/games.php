@@ -126,7 +126,7 @@ class Games extends CI_Controller {
         $this->output->cache(120);
     }
 
-    private function get_td_thumbnail($game,$candidate, $like_plugin, $wiki_info_card) {
+    private function get_td_thumbnail($game,$candidate, $like_plugin, $wiki_info_card, $blurb) {
 
         $cache_result = $this->cache->file->get('candidate_td_thumbnail_'.$candidate->c_id);
         if ( !empty($cache_result))
@@ -183,8 +183,11 @@ class Games extends CI_Controller {
                                                             <h4 class="modal-title" id="myModalLabel">Candidate Info</h4>
                                                         </div>
                                                         <div class="modal-body">
+                                                        <div>'.  $blurb.'</div>
+                                                        <br>
                                                             <table>
                                                                 <tr>
+
                                                                     <td>'.  $wiki_info_card.'</td>
                                                                     <td>'.  $like_plugin.'</td>
                                                                 </tr>
@@ -237,6 +240,7 @@ class Games extends CI_Controller {
 
                 $fb_handle = @$candidate->c_metadata['fb'];
                 $wiki_handle = @$candidate->c_metadata['wiki'];
+                $blurb = @$candidate->c_metadata['blurb'];
                 $like_plugin = '';
                 $wiki_info_card = '';
 
@@ -246,7 +250,10 @@ class Games extends CI_Controller {
                 if(!empty($wiki_handle)) {
                     $wiki_info_card = get_info_card($wiki_handle);
                 }
-                $td = $this->get_td_thumbnail($game, $candidate, $like_plugin, $wiki_info_card);
+                if(empty($blurb)){
+                    $blurb = '';
+                }
+                $td = $this->get_td_thumbnail($game, $candidate, $like_plugin, $wiki_info_card,$blurb);
                 array_push($tds, $td);
             }
 
