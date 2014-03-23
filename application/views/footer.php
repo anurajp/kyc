@@ -96,6 +96,7 @@
 <script src="/js/bootstrap.min.js"  type="text/javascript"></script>
 <script src="/js/stickUp.min.js"  type="text/javascript"></script>
 <script src="/js/templatemo_script.js"  type="text/javascript"></script>
+<script src="/js/colorbox/jquery.colorbox-min.js"  type="text/javascript"></script>
 <script type='text/javascript' src='/js/app.js'></script>
 <!--<script src="http://pioul.fr/ext/jquery-diyslider/jquery.diyslider.min.js"></script>-->
 <!--<script src="http://bxslider.com/lib/jquery.bxslider.js" type="text/javascript"></script>-->
