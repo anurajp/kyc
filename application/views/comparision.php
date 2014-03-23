@@ -1,4 +1,5 @@
 <?php include('ads/flipkart_horizontal.php') ?>
+
 <?php foreach ($divs as $div):?>
 
     <?php echo $div;?>

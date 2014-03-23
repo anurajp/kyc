@@ -18,17 +18,17 @@
                 <!--<form id="feedback-form" class="form-horizontal" action="http://localhost/index.php/email/send">-->
                 <?php echo form_open('email/send', array('id'=>"feedback-form","class"=>"form-horizontal")); ?>
 
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Your Name..." maxlength="40" name="iname"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Your Email..." maxlength="40" name="iemail"/>
-                    </div>
-                    <div class="form-group">
-                        <textarea  class="form-control" style="height: 130px;" placeholder="Write down your message..." name="imsg"></textarea>
-                    </div>
-                    <!--<button type="submit" class="btn btn-orange pull-right">SEND</button>-->
-                    <input type="submit" class="btn btn-orange pull-right" value="SEND"</input>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Your Name..." maxlength="40" name="iname"/>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Your Email..." maxlength="40" name="iemail"/>
+                </div>
+                <div class="form-group">
+                    <textarea  class="form-control" style="height: 130px;" placeholder="Write down your message..." name="imsg"></textarea>
+                </div>
+                <!--<button type="submit" class="btn btn-orange pull-right">SEND</button>-->
+                <input type="submit" class="btn btn-orange pull-right" value="SEND"/>
                 </form>
                 <div id="feedback-form-result">
 
@@ -94,9 +94,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"  type="text/javascript"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script type='text/javascript' src='/js/jquery.ui.map.min.js'></script>
-<script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js" type="text/javascript"></script>
+<script src="/js/stickUp.min.js"  type="text/javascript"></script>
+<script src="/js/templatemo_script.js"  type="text/javascript"></script>
+<script type='text/javascript' src='/js/app.js'></script>
 <!--<script src="http://pioul.fr/ext/jquery-diyslider/jquery.diyslider.min.js"></script>-->
 <!--<script src="http://bxslider.com/lib/jquery.bxslider.js" type="text/javascript"></script>-->
 

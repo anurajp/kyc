@@ -240,4 +240,11 @@ class Games_model extends CI_Model {
         return $fields_result;
     }
 
+    public function get_value($key) {
+        $this->db->select('value');
+        $query = $this->db->get_where('KeyValue', array('key' => $key));
+        $votes_row = $query->row_array();
+        return @$votes_row['value'];
+    }
+
 } 

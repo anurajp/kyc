@@ -141,8 +141,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?php echo(base_url()) ?>" rel="nofollow"><img src="/images/kyc-logo.png" alt="Know Your Candidate"/></a>
+                    <a class="navbar-brand" href="<?php echo(base_url()) ?>"><img src="/images/kyc-logo.png" alt="Know Your Candidate"/></a>
+
                 </div>
+
                 <div class="navbar-collapse collapse" id="templatemo-nav-bar">
                     <ul class="nav navbar-right navbar-nav" style="margin-top: 40px;">
 

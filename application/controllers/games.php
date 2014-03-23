@@ -103,15 +103,18 @@ class Games extends CI_Controller {
             show_404();
             return;
         }
-
+        $metadata['team_details'] = $this->games_model->get_value($team);
         $games = $this->games_model->get_games_by_team($g_type, $team);
         $title = $team.' '.$g_type.' Candidates head to head';
-        $this->display_events($games, $g_type, $title);
+        $this->display_events($games, $g_type, $title, $metadata);
     }
 
 
 
-    private function display_events($games, $g_type, $title) {
+    private function display_events($games, $g_type, $title, $metadata) {
+        if(!empty($metadata) && !empty($metadata['team_details'])) {
+            $data['team_details'] = $metadata['team_details'];
+        }
         $games_table = '<h2 class="container"> Sorry! No results found </h2>';
         if(!empty($games)) {
             $games_table = $this->get_games_table($games, $g_type);
@@ -433,7 +436,7 @@ class Games extends CI_Controller {
 
         $games = $this->games_model->get_games($criteria);
         $title = $g_type.' '.$value.' Candidates head to head';
-        $this->display_events($games, $g_type, $title);
+        $this->display_events($games, $g_type, $title, null);
 
     }
 
