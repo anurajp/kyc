@@ -247,4 +247,21 @@ class Games_model extends CI_Model {
         return @$votes_row['value'];
     }
 
+    public function get_contents($g_type, $c_type, $limit) {
+        $criteria = array("gtype"=>$g_type, "ctype"=>$c_type);
+        if($limit > 0) {
+            $content_query = $this->db->get_where('Content', $criteria, $limit);
+        } else {
+            $content_query = $this->db->get_where('Content', $criteria);
+        }
+
+        return @$content_query->result_array();
+    }
+
+    public function get_content($g_type, $c_name) {
+        $criteria = array("gtype"=>$g_type, "cname"=>$c_name);
+        $content_query = $this->db->get_where('Content', $criteria);
+        return @$content_query->row_array();
+    }
+
 } 
