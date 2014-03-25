@@ -451,4 +451,21 @@ class Games extends CI_Controller {
         echo($carousel_divs);
     }
 
+    private function video($url){
+        $data['title'] = "BJP Anthem - Main Desh Nahi Mithne Doonga";
+        $data['video_url'] = $url;
+        $data['g_type'] = 'Loksabha';
+
+        $this->load->view("header", $data);
+        $this->load->view("video",$data);
+        $this->load->view("footer");
+        $this->load->view("app_jquery", $data);
+
+    }
+
+    public function videos(){
+        $this->video("av");
+
+   }
+
 } 
