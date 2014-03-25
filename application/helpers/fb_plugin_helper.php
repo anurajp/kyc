@@ -22,7 +22,7 @@ function get_comment_plugin($page_name) {
 function get_like_candidate_plugin($page_name){
     $like_candidate_plugin = '<div class="fb-like" data-href=';
     $like_candidate_plugin.= $page_name;
-    $like_candidate_plugin.='" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>';
+    $like_candidate_plugin.=' data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>';
     return $like_candidate_plugin;
 }
 
