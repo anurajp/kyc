@@ -8,15 +8,15 @@
         <div class="icon-font" style="font-size: small; font-family: Arial">
 
             <?php
-                echo '<h2>'.$title.' '.get_like_candidate_plugin(current_url()).'</h2>';
+                echo '<h2>'.$page_heading.' '.get_like_candidate_plugin(current_url()).'</h2>';
             ?>
 
         </div>
-        </br>
+
         <!--INFOLINKS_ON-->
 
         <?php echo $content_div ?> <!-- HTML Content here-->
     </div>
+    <br>
 
 <?php include('ads/amazon_horizontal_banner.php') ?>
-<?php include('ads/infolinks.php') ?>

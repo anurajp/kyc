@@ -14,7 +14,8 @@ class Contents extends CI_Controller {
     }
 
     /**
-     * Home page for content i.e Loksabha, News etc where we display list of contents. Each content links to content view page
+     * Home page for content i.e Loksabha, News etc where we display list of contents.
+     * Each content links to content view page
      *
      * @param $g_type
      * @param $content_type
@@ -22,7 +23,8 @@ class Contents extends CI_Controller {
     public function home($g_type, $content_type) {
         $data['g_type'] = $g_type;
         $data['content_type'] = $content_type;
-        $data['title'] = 'Know Your Candidate '. $g_type . ', ' . $content_type;
+        $data['title'] = 'Know Your Candidate '. $g_type . ' ' . ucwords($content_type);
+        $data['page_heading'] = $g_type . ' ' . ucwords($content_type);
         $data['content_div'] = $this->get_content_div_home($g_type, $content_type);
         $this->load->view("header", $data);
         $this->load->view("content_home", $data);
@@ -32,16 +34,17 @@ class Contents extends CI_Controller {
     }
 
     /**
-     * Detailed description of content
+     * Detailed description of view
      *
-     * @param $g_type
-     * @param $cname
+     * @param $g_type - Loksabha,IPl,etc
+     * @param $ctitle - article name
      */
-    public function view($g_type, $cname) {
+    public function view($g_type, $content_type, $ctitle) {
         $data['g_type'] = $g_type;
-        $data['cname'] = str_replace('_', ' ', $cname);
-        $data['title'] = $g_type . ': ' . $data['cname'];
-        $data['content_div'] = $this->get_content_div_view($g_type, $cname);
+        $data['ctitle'] = rawurldecode($ctitle);
+        $data['title'] = "Know Your Candidate ".$g_type . ': ' . $data['ctitle'];
+        $data['page_heading'] = $data['ctitle'];
+        $data['content_div'] = $this->get_content_div_view($g_type, $content_type, $ctitle);
         $this->load->view("header", $data);
         $this->load->view("content_view", $data);
         $this->load->view("footer");
@@ -51,22 +54,43 @@ class Contents extends CI_Controller {
 
     private function get_content_div_home($g_type, $content_type) {
         $contents = $this->games_model->get_contents($g_type, $content_type, 0);
-        //generate div html here
-        return "Hi";
+
+        $content_div = '';
+        foreach($contents as $content){
+            $content_url = base_url().'index.php/contents/view/'.$g_type.'/'.$content_type.'/'.rawurlencode($content["ctitle"]); // cname - article Title
+            $content_div .= '<div>'.
+                                '<h3><a href = "'.
+                                $content_url.
+                                '">'.
+                                $content["ctitle"].
+                                 '</a></h3>'.
+                                '<h5>Posted on '.date('jS M Y H:i:s', strtotime($content['cpostdate'])).'</h5>'.
+                                '<h5> by '.$content['cuser'].'</h5>'.
+                                '<h4>'.$content['cdesc'].'</h4>'.
+                                '<h5><a href = "'.$content_url.'">Read More</a></h5>'.
+                            '</div>';
+        }
+
+        $contents_div = "<div>".
+                       $content_div.
+                       "</div>";
+
+        return $contents_div;
     }
 
-    private function get_content_div_view($g_type, $cname) {
-        $content = $this->games_model->get_content($g_type, $cname);
+    private function get_content_div_view($g_type, $content_type, $ctitle) {
+        $ctitle = rawurldecode($ctitle);
+        $content = $this->games_model->get_content($g_type, $content_type, $ctitle);
+        $content_div = '';
         if(!empty($content)) {
-            switch ($content['cname']) {
-                case "news":
-                    //generate div html here
-                    return "Hi Content";
-                    break;
-                default:
-                    return;
-            }
+            $content_div .= '<h5>Posted on '.date('jS M Y H:i:s', strtotime($content['cpostdate'])).'</h5>'.
+                            '<h5> by '.$content['cuser'].'</h5><br>'.
+                            '<div class="icon-font" style="font-size: 15px; font-weight: 500; font-family: Arial">'.
+                                $content['ccont'].
+
+                           '</div>';
         }
+        return $content_div;
 
     }
 

@@ -8,7 +8,7 @@
         <div class="icon-font" style="font-size: small; font-family: Arial">
 
             <?php
-                echo '<h2>'.$title.' '.get_like_candidate_plugin(current_url()).'</h2>';
+                echo '<h2><u>'.$page_heading.'</u> '.get_like_candidate_plugin(current_url()).'</h2>';
             ?>
 
         </div>

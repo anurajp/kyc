@@ -151,6 +151,9 @@
                         <li><a href="<?php echo(base_url()) ?>index.php">HOME</a></li>
                         <li><a href="<?php echo(base_url()) ?>index.php#kyc-welcome">ABOUT</a></li>
                         <li><a href="<?php echo(base_url()) ?>index.php#kyc-contact">CONTACT</a></li>
+                        <li><a href="<?php echo(base_url()) ?>index.php/contents/home/Loksabha/news">NEWS</a></li>
+                        <li><a href="<?php echo(base_url()) ?>index.php/contents/home/Loksabha/blog">BLOG</a></li>
+
 
                     </ul>
                 </div><!--/.nav-collapse -->

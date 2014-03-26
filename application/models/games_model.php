@@ -247,6 +247,13 @@ class Games_model extends CI_Model {
         return @$votes_row['value'];
     }
 
+    /*
+     * Get the contents based on
+     * g_type - Loksabha,IPL2014
+     * c_type - news,blog
+     * limit - no. of articles
+     */
+
     public function get_contents($g_type, $c_type, $limit) {
         $criteria = array("gtype"=>$g_type, "ctype"=>$c_type);
         if($limit > 0) {
@@ -258,8 +265,14 @@ class Games_model extends CI_Model {
         return @$content_query->result_array();
     }
 
-    public function get_content($g_type, $c_name) {
-        $criteria = array("gtype"=>$g_type, "cname"=>$c_name);
+    /*
+     * Get the content based on
+     * g_type - Loksabha,IPL2014
+     * c_name - content name
+     */
+
+    public function get_content($g_type, $content_type, $c_title) {
+        $criteria = array("gtype"=>$g_type, "ctitle"=>$c_title, "ctype"=>$content_type);
         $content_query = $this->db->get_where('Content', $criteria);
         return @$content_query->row_array();
     }
